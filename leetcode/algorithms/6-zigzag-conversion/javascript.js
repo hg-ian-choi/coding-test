@@ -10,13 +10,14 @@ var convert = function (s, numRows) {
   }
 
   // can zigzeg
-  let sArray = new Array();
 
+  // create array[][]
+  let sArray = new Array();
   for (let i = 0; i < numRows; i++) {
     sArray[i] = new Array();
   }
 
-  let j = 0;
+  // units
   let zigzegDirectionChanged = false;
-  let y = parseInt(s.length / numRows + 2);
+  const rowContainWords = numRows + numRows - 2;
 };
