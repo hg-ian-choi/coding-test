@@ -4,20 +4,13 @@
  * @return {string}
  */
 var convert = function (s, numRows) {
-  // can not zigzeg
-  if (numRows === 1 || s.length < numRows) {
-    return s;
-  }
-
-  // can zigzeg
-
-  // create array[][]
-  let sArray = new Array();
-  for (let i = 0; i < numRows; i++) {
-    sArray[i] = new Array();
-  }
-
-  // units
-  let zigzegDirectionChanged = false;
-  const rowContainWords = numRows + numRows - 2;
+  // 1. Make an array with the zigzag sequence
+  const zigzag = [...new Array(numRows).keys()];
+  zigzag.push(...zigzag.slice(1, -1).reverse());
+  // 2. Make an array with as many strings as we need rows
+  const rows = new Array(numRows).fill('');
+  // 3. Append the characters to the row strings in zigzag sequence
+  [...s].forEach((c, i) => (rows[zigzag[i % zigzag.length]] += c));
+  // 4. Join the row strings in the array together
+  return rows.join('');
 };
