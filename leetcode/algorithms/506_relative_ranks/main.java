@@ -25,6 +25,7 @@ class RelativeRanks {
         return result;
     }
 
+
     // Best Solution
     /*
      * Example:
